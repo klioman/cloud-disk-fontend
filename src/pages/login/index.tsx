@@ -25,7 +25,8 @@ const View: FC<TLoginComponentProps> = (props) => {
 
 	return (
 		<EmptyLayout>
-			<div className="login-form-wrapper">
+			<div className="auth-form-wrapper">
+				<h3>Вход:</h3>
 				<Spin tip="Загрузка..." spinning={isLoading}>
 					<Form
 						className="login-form"
