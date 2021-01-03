@@ -24,6 +24,9 @@ export const getAuthIsLoad = createSelector(
 );
 
 // ====================================================:
+export const getAuthErrors = createSelector([getAuth], (auth: IAuthStore): any => auth.errorsList);
+
+// ====================================================:
 export const getLogOutUserToken = createSelector(
 	[getAuth],
 	(auth: IAuthStore): string | undefined => auth.token?.accessToken,

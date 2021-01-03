@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ALLOW_WINDOW_EXTENDS, WEB_API_URL } from 'constants/env';
-import { loginFail, refreshTokenSuccess } from 'redux/reducers/auth/reducer';
+import { authFail, refreshTokenSuccess } from 'redux/reducers/auth/reducer';
 import { getAuth, getAuthTokenRefresh } from 'redux/reducers/auth/selectors';
 import { store } from 'redux/store';
 import { api } from 'services/api';
@@ -52,7 +52,7 @@ const responseInterceptorOnError = (error: AxiosError) => {
 				return http.request(errorResponse.config);
 			})
 			.catch((error) => {
-				store.dispatch(loginFail());
+				store.dispatch(authFail());
 				Notify.error(error.response.data.message);
 			});
 	}

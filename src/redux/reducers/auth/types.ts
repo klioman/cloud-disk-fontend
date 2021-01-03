@@ -23,6 +23,7 @@ export interface IAuthStore {
 	isAuthLoader: boolean;
 	isLogoutLoader: boolean;
 	isAuthenticated: boolean;
+	errorsList: [] | any;
 	token: IToken | null;
 }
 

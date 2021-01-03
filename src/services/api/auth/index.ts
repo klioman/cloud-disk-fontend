@@ -12,6 +12,12 @@ export const auth: IAuthApi = {
 			.then((response): LoginGuard => new LoginGuard(response));
 	},
 
+	registration: (payload) => {
+		return http
+			.post<{ data: any }>(endpoint.auth.REGISTRATION, payload)
+			.then((response): any => response);
+	},
+
 	refreshToken: (payload) => {
 		return http
 			.post<{ data: IToken }>(endpoint.auth.REFRESH_TOKEN, payload)
