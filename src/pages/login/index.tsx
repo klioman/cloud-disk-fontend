@@ -55,7 +55,17 @@ const View: FC<TLoginComponentProps> = (props) => {
 
 						<Form.Item
 							name="password"
-							rules={[{ required: true, message: 'Пожалуйста, введите ваш пароль!' }]}
+							rules={[
+								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
+								{
+									min: 3,
+									message: 'Пароль должен быть не меньше 3-х символов',
+								},
+								{
+									max: 12,
+									message: 'Пароль должен быть не больше 12 символов',
+								},
+							]}
 						>
 							<Input.Password
 								prefix={<LockOutlined className="site-form-item-icon" />}

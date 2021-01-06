@@ -33,7 +33,7 @@ const View: FC<any> = (props) => {
 				>
 					<Form.Item
 						name="email"
-						validateTrigger={['onChange', 'onBlur']}
+						validateTrigger={['onChange']}
 						rules={[
 							{
 								type: 'email',
@@ -51,7 +51,6 @@ const View: FC<any> = (props) => {
 
 					<Form.Item
 						name="password"
-						validateTrigger={['onChange', 'onBlur']}
 						rules={[
 							{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
 							{
@@ -81,7 +80,7 @@ const View: FC<any> = (props) => {
 	);
 };
 
-// ================= Container: =================
+// ==================== Container: ====================
 const mapStateToProps = (store: IStoreState): any => {
 	return { isLoading: getAuthIsLoad(store), authErrors: getAuthErrors(store) };
 };
