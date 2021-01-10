@@ -37,8 +37,8 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 				position ? 'active-sx' : 'inactive-sx'
 			}`}
 		>
-			<h3 className="auth-form-wrapper__title">Регистрация:</h3>
 			<Spin tip="Загрузка..." spinning={isLoading}>
+				<h3 className="auth-form-wrapper__title">Регистрация:</h3>
 				<Form
 					className="registration-form"
 					name="user-login"

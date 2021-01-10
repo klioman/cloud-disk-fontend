@@ -1,15 +1,14 @@
 import { IToken, IUserLogin } from 'redux/reducers/auth/types';
 import { http } from 'services/http';
 import { endpoint } from '../endpoints';
-import { LoginGuard } from './guards';
 import { RefreshTokenGuard } from './guards/refreshToken';
 import { IAuthApi } from './types';
 
 export const auth: IAuthApi = {
 	login: (payload) => {
 		return http
-			.post<{ data: IUserLogin }>(endpoint.auth.LOGIN, payload)
-			.then((response): LoginGuard => new LoginGuard(response));
+			.post<IUserLogin>(endpoint.auth.LOGIN, payload)
+			.then((response): IUserLogin => response.data);
 	},
 
 	registration: (payload) => {

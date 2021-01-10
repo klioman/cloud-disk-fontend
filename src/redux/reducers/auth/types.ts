@@ -3,6 +3,13 @@ export interface IToken {
 	refreshToken: string;
 }
 
+export interface IUser {
+	diskSpace: number;
+	email: string;
+	id: string;
+	usedSpace: number;
+	userRole: string;
+}
 export interface IUserPermissions {
 	userRole: string;
 	userPermissions: any | [];
@@ -16,6 +23,7 @@ export interface ILoginRequestPayload {
 export interface IUserLogin {
 	permissions: IUserPermissions;
 	tokens: IToken;
+	user: IUser;
 }
 
 export interface IAuthStore {
