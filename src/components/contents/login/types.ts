@@ -12,7 +12,11 @@ export interface ILoginIMapStateToProps {
 type TConnectProps = ILoginIMapStateToProps & ILoginMapDispatchToProps;
 
 // =============================
-interface IOwnProps {}
+interface IOwnProps {
+	position: any;
+	changePosition: any;
+	animationStatus: any;
+}
 // =============================
 
 export type TLoginComponentProps = IOwnProps & TConnectProps;

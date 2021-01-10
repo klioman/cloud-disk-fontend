@@ -5,7 +5,7 @@ import { getAuthIsAuthenticated, getAuthIsNotAuthenticated } from 'redux/reducer
 const locationHelper = locationHelperBuilder({});
 
 export const isAuth = connectedRouterRedirect({
-	redirectPath: '/login',
+	redirectPath: '/auth',
 	authenticatedSelector: getAuthIsAuthenticated,
 	wrapperDisplayName: 'UserIsAuthenticated',
 });

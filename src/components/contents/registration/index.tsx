@@ -6,11 +6,16 @@ import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { registrationRequest } from 'redux/reducers/auth/reducer';
 import { ILoginRequestPayload } from 'redux/reducers/auth/types';
 import { IStoreState } from 'redux/types';
-import { getAuthIsLoad, getAuthErrors } from 'redux/reducers/auth/selectors';
+import { getAuthIsLoad } from 'redux/reducers/auth/selectors';
+import {
+	IRegistrationIMapStateToProps,
+	IRegistrationMapDispatchToProps,
+	TRegistrationComponentProps,
+} from './types';
 
 // ===================================================
-const View: FC<any> = (props) => {
-	const { registrationRequest, isLoading } = props;
+const View: FC<TRegistrationComponentProps> = (props) => {
+	const { registrationRequest, isLoading, animationStatus, changePosition, position } = props;
 
 	const onFinish = (values: ILoginRequestPayload) => {
 		registrationRequest(values);
@@ -21,9 +26,18 @@ const View: FC<any> = (props) => {
 		console.error('Failed:', errorInfo);
 	};
 
+	const handleChangeForm = () => {
+		animationStatus(true);
+		changePosition(!position);
+	};
+
 	return (
-		<div className="auth-form-wrapper">
-			<h3>Регистрация:</h3>
+		<div
+			className={`auth-form-wrapper auth-form-wrapper--regitrstion ${
+				position ? 'active-sx' : 'inactive-sx'
+			}`}
+		>
+			<h3 className="auth-form-wrapper__title">Регистрация:</h3>
 			<Spin tip="Загрузка..." spinning={isLoading}>
 				<Form
 					className="registration-form"
@@ -31,46 +45,59 @@ const View: FC<any> = (props) => {
 					onFinish={onFinish}
 					onFinishFailed={onFinishFailed}
 				>
-					<Form.Item
-						name="email"
-						validateTrigger={['onChange']}
-						rules={[
-							{
-								type: 'email',
-								whitespace: true,
-								message: 'Введите валидный e-mail!',
-							},
-							{
-								required: true,
-								message: 'Пожалуйста, введите ваш E-mail!',
-							},
-						]}
-					>
-						<Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
-					</Form.Item>
+					<div className="auth-form-wrapper__content">
+						<Form.Item
+							name="email"
+							validateTrigger={['onChange']}
+							rules={[
+								{
+									type: 'email',
+									whitespace: true,
+									message: 'Введите валидный e-mail!',
+								},
+								{
+									required: true,
+									message: 'Пожалуйста, введите ваш E-mail!',
+								},
+							]}
+						>
+							<Input
+								prefix={<MailOutlined className="site-form-item-icon" />}
+								placeholder="Email"
+							/>
+						</Form.Item>
 
-					<Form.Item
-						name="password"
-						rules={[
-							{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
-							{
-								min: 3,
-								message: 'Пароль должен быть не меньше 3-х символов',
-							},
-							{
-								max: 12,
-								message: 'Пароль должен быть не больше 12 символов',
-							},
-						]}
-					>
-						<Input.Password
-							prefix={<LockOutlined className="site-form-item-icon" />}
-							placeholder="Пароль"
-						/>
-					</Form.Item>
-
-					<Form.Item style={{ marginBottom: 0 }}>
-						<Button type="primary" htmlType="submit">
+						<Form.Item
+							name="password"
+							rules={[
+								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
+								{
+									min: 3,
+									message: 'Пароль должен быть не меньше 3-х символов',
+								},
+								{
+									max: 12,
+									message: 'Пароль должен быть не больше 12 символов',
+								},
+							]}
+						>
+							<Input.Password
+								prefix={<LockOutlined className="site-form-item-icon" />}
+								placeholder="Пароль"
+							/>
+						</Form.Item>
+					</div>
+					<Form.Item className="auth-button-wrapper">
+						<Button
+							size="large"
+							onClick={handleChangeForm}
+							className="auth-btn-type-2"
+							type="primary"
+							htmlType="button"
+						>
+							Войти
+						</Button>
+						<Button size="large" className="auth-btn-type-1" type="primary" htmlType="submit">
 							Отправить
 						</Button>
 					</Form.Item>
@@ -81,10 +108,10 @@ const View: FC<any> = (props) => {
 };
 
 // ==================== Container: ====================
-const mapStateToProps = (store: IStoreState): any => {
-	return { isLoading: getAuthIsLoad(store), authErrors: getAuthErrors(store) };
+const mapStateToProps = (store: IStoreState): IRegistrationIMapStateToProps => {
+	return { isLoading: getAuthIsLoad(store) };
 };
-const mapDispatchToProps: any = { registrationRequest };
-const Login = connect(mapStateToProps, mapDispatchToProps)(View);
+const mapDispatchToProps: IRegistrationMapDispatchToProps = { registrationRequest };
+const Registration = connect(mapStateToProps, mapDispatchToProps)(View);
 
-export default Login;
+export default Registration;

@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-import { Form, Input, Button, Spin } from 'antd';
+import { Form, Input, Spin, Button } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { Store } from 'antd/lib/form/interface';
-import EmptyLayout from 'layouts/empty';
 import { getAuthIsLoad } from 'redux/reducers/auth/selectors';
 import { loginRequest } from 'redux/reducers/auth/reducer';
 import { IStoreState } from 'redux/types';
@@ -12,7 +11,7 @@ import { ILoginIMapStateToProps, ILoginMapDispatchToProps, TLoginComponentProps 
 
 // ===================================================
 const View: FC<TLoginComponentProps> = (props) => {
-	const { loginRequest, isLoading } = props;
+	const { loginRequest, isLoading, animationStatus, changePosition, position } = props;
 
 	const onFinish = (values: ILoginRequestPayload) => {
 		loginRequest(values);
@@ -23,17 +22,26 @@ const View: FC<TLoginComponentProps> = (props) => {
 		console.error('Failed:', errorInfo);
 	};
 
+	const handleChangeForm = () => {
+		animationStatus(true);
+		changePosition(!position);
+	};
+
 	return (
-		<EmptyLayout>
-			<div className="auth-form-wrapper">
-				<h3>Вход:</h3>
-				<Spin tip="Загрузка..." spinning={isLoading}>
-					<Form
-						className="login-form"
-						name="user-login"
-						onFinish={onFinish}
-						onFinishFailed={onFinishFailed}
-					>
+		<div
+			className={`auth-form-wrapper auth-form-wrapper--login ${
+				position ? 'inactive-dx' : 'active-dx'
+			}`}
+		>
+			<h3 className="auth-form-wrapper__title">Вход:</h3>
+			<Spin tip="Загрузка..." spinning={isLoading}>
+				<Form
+					className="login-form"
+					name="user-login"
+					onFinish={onFinish}
+					onFinishFailed={onFinishFailed}
+				>
+					<div className="auth-form-wrapper__content">
 						<Form.Item
 							name="email"
 							rules={[
@@ -72,16 +80,24 @@ const View: FC<TLoginComponentProps> = (props) => {
 								placeholder="Пароль"
 							/>
 						</Form.Item>
-
-						<Form.Item style={{ marginBottom: 0 }}>
-							<Button type="primary" htmlType="submit">
-								Отправить
-							</Button>
-						</Form.Item>
-					</Form>
-				</Spin>
-			</div>
-		</EmptyLayout>
+					</div>
+					<Form.Item className="auth-button-wrapper">
+						<Button
+							size="large"
+							onClick={handleChangeForm}
+							className="auth-btn-type-2"
+							type="primary"
+							htmlType="button"
+						>
+							Регистрация
+						</Button>
+						<Button size="large" className="auth-btn-type-1" type="primary" htmlType="submit">
+							Отправить
+						</Button>
+					</Form.Item>
+				</Form>
+			</Spin>
+		</div>
 	);
 };
 

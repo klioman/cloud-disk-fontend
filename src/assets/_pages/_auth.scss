@@ -1,0 +1,160 @@
+// =====================================:
+// Authentication:
+// =====================================:
+
+.auth-form-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	max-width: 346px;
+	margin-top: -113px;
+	margin-left: -173px;
+	padding-top: 20px;
+	background-color: #fff;
+	box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
+
+	.ant-form-item {
+		width: 100%;
+	}
+
+	&__title {
+		margin-bottom: 24px;
+		font-size: 20px;
+		line-height: 22px;
+		text-align: center;
+	}
+
+	&__content {
+		padding: 0 20px;
+	}
+
+	&--login {
+		z-index: 2;
+	}
+
+	&--regitrstion {
+		z-index: 1;
+		transform: perspective(100px) translate3d(100px, 0px, -30px);
+		opacity: 0.5;
+	}
+}
+
+.auth-button-wrapper {
+	margin-bottom: 0;
+	padding-top: 5px;
+	.ant-form-item-control {
+		.ant-form-item-control-input-content {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+
+.auth-btn-type-1 {
+	width: 100%;
+	color: #fff;
+	background-color: #009566;
+	border-color: #009566;
+	border-radius: 0;
+
+	&:hover {
+		background-color: #007a54;
+		border-color: #007a54;
+	}
+}
+
+.auth-btn-type-2 {
+	width: 100%;
+}
+
+.change-form-active {
+	.active-dx {
+		animation-name: foregrounding-dx;
+		animation-duration: 0.9s;
+		animation-fill-mode: forwards;
+	}
+
+	.active-sx {
+		animation-name: foregrounding-sx;
+		animation-duration: 0.9s;
+		animation-fill-mode: forwards;
+	}
+
+	.inactive-dx {
+		animation-name: overshadowing-dx;
+		animation-duration: 0.9s;
+		animation-fill-mode: forwards;
+	}
+
+	.inactive-sx {
+		animation-name: overshadowing-sx;
+		animation-duration: 0.9s;
+		animation-fill-mode: forwards;
+	}
+}
+
+// =====================================:
+@keyframes overshadowing-dx {
+	0% {
+		z-index: 2;
+		box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+		transform: perspective(100px) translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+	100% {
+		z-index: 1;
+		box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+		transform: perspective(100px) translate3d(-100px, 0px, -30px);
+		opacity: 0.5;
+	}
+}
+
+@keyframes overshadowing-sx {
+	0% {
+		z-index: 2;
+		box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+		transform: perspective(100px) translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+	100% {
+		z-index: 1;
+		box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+		transform: perspective(100px) translate3d(100px, 0px, -30px);
+		opacity: 0.5;
+	}
+}
+
+@keyframes foregrounding-dx {
+	0% {
+		z-index: 1;
+		transform: perspective(100px) translate3d(-100px, 0px, -30px);
+		opacity: 0.5;
+	}
+	50% {
+		z-index: 2;
+		transform: perspective(100px) translate3d(-400px, 0px, -30px);
+	}
+	100% {
+		z-index: 2;
+		transform: perspective(100px) translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@keyframes foregrounding-sx {
+	0% {
+		z-index: 1;
+		transform: perspective(100px) translate3d(100px, 0px, -30px);
+		opacity: 0.5;
+	}
+	50% {
+		z-index: 2;
+		transform: perspective(100px) translate3d(400px, 0px, -30px);
+	}
+	100% {
+		z-index: 2;
+		transform: perspective(100px) translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
