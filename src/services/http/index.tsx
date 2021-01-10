@@ -44,9 +44,9 @@ const responseInterceptorOnError = (error: AxiosError) => {
 		return api.auth
 			.refreshToken({ refreshToken: getAuthTokenRefresh(state) })
 			.then((response) => {
-				store.dispatch(refreshTokenSuccess(response.data));
+				store.dispatch(refreshTokenSuccess(response));
 
-				errorResponse.config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+				errorResponse.config.headers.Authorization = `Bearer ${response.accessToken}`;
 				errorResponse.config.baseURL = undefined;
 
 				return http.request(errorResponse.config);

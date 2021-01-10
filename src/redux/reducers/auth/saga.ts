@@ -2,14 +2,14 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { api, Notify } from 'services';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { loginSuccess, authFail, logoutSuccess, authErrors } from './reducer';
-import { ILoginRequestPayload, IUserLogin } from './types';
+import { ILoginRequestPayload, IUserAuth } from './types';
 
 // =============================================================:
 function* loginRequestWorker(action: PayloadAction<ILoginRequestPayload>) {
 	const { payload } = action;
 
 	try {
-		const response: IUserLogin = yield call(api.auth.login, payload);
+		const response: IUserAuth = yield call(api.auth.login, payload);
 		yield put(loginSuccess(response));
 		Notify.success('Login success!');
 	} catch (error) {
@@ -26,8 +26,8 @@ function* registrationRequestWorker(action: PayloadAction<any>) {
 	const { payload } = action;
 
 	try {
-		const response: any = yield call(api.auth.registration, payload); // LoginGuard
-		yield put(loginSuccess(response.data));
+		const response: IUserAuth = yield call(api.auth.registration, payload);
+		yield put(loginSuccess(response));
 		Notify.success('Registration success!');
 	} catch (error) {
 		yield put(authFail());

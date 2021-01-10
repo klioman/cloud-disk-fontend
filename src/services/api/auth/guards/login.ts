@@ -1,13 +1,13 @@
 import { AxiosResponse } from 'axios';
-import { IUserLogin } from 'redux/reducers/auth/types';
+import { IUserAuth } from 'redux/reducers/auth/types';
 import { BaseGuard } from 'services/api/baseGuard';
 
 interface IData {
-	data: IUserLogin;
+	data: IUserAuth;
 }
 
 export class LoginGuard extends BaseGuard implements IData {
-	public readonly data: IUserLogin = {} as IUserLogin;
+	public readonly data: IUserAuth = {} as IUserAuth;
 
 	protected readonly guardRules = {
 		permissions: {
@@ -20,7 +20,7 @@ export class LoginGuard extends BaseGuard implements IData {
 		},
 	};
 
-	constructor(response: AxiosResponse<{ data: IUserLogin }>) {
+	constructor(response: AxiosResponse<{ data: IUserAuth }>) {
 		super();
 		this.data = this.validate(response.data);
 	}

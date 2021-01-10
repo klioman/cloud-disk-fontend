@@ -2,13 +2,13 @@ import { AxiosPromise } from 'axios';
 import {
 	ILoginRequestPayload,
 	IRefreshTokenRequestPayload,
-	IUserLogin,
+	IToken,
+	IUserAuth,
 } from 'redux/reducers/auth/types';
-import { RefreshTokenGuard } from './guards/refreshToken';
 
 export interface IAuthApi {
-	login: (payload: ILoginRequestPayload) => Promise<IUserLogin>;
-	refreshToken: (payload: IRefreshTokenRequestPayload) => Promise<RefreshTokenGuard>;
-	registration: (payload: ILoginRequestPayload) => Promise<any>;
+	login: (payload: ILoginRequestPayload) => Promise<IUserAuth>;
+	refreshToken: (payload: IRefreshTokenRequestPayload) => Promise<IToken>;
+	registration: (payload: ILoginRequestPayload) => Promise<IUserAuth>;
 	logout: () => AxiosPromise;
 }

@@ -20,7 +20,7 @@ export interface ILoginRequestPayload {
 	password: string;
 }
 
-export interface IUserLogin {
+export interface IUserAuth {
 	permissions: IUserPermissions;
 	tokens: IToken;
 	user: IUser;
@@ -35,5 +35,5 @@ export interface IAuthStore {
 	token: IToken | null;
 }
 
-export interface ILoginSuccessPayload extends IUserLogin {}
+export interface ILoginSuccessPayload extends IUserAuth {}
 export interface IRefreshTokenRequestPayload extends Pick<IToken, 'refreshToken'> {}
