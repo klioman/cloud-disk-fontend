@@ -49,6 +49,7 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 						<Form.Item
 							name="email"
 							validateTrigger={['onChange']}
+							hasFeedback
 							rules={[
 								{
 									type: 'email',

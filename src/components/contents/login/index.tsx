@@ -44,6 +44,7 @@ const View: FC<TLoginComponentProps> = (props) => {
 					<div className="auth-form-wrapper__content">
 						<Form.Item
 							name="email"
+							hasFeedback
 							rules={[
 								{
 									type: 'email',
@@ -63,6 +64,7 @@ const View: FC<TLoginComponentProps> = (props) => {
 
 						<Form.Item
 							name="password"
+							hasFeedback
 							rules={[
 								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
 								{
