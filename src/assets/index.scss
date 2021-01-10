@@ -59,6 +59,20 @@ body {
 	height: 100%;
 }
 
+.logo {
+	height: 32px;
+	margin: 16px;
+	background: rgba(255, 255, 255, 0.3);
+}
+
+// =====================================================
+.user-profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 // Layouts:
 @import './_layouts/empty';
 @import './_layouts/base';

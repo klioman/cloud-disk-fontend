@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
-import { Button, Layout } from 'antd';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import { Avatar, Button, Layout } from 'antd';
+import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined } from '@ant-design/icons';
 
-import AppHeader from 'components/app-header';
 import AppSidebar from 'components/app-sidebar';
 import AppContent from 'components/app-content';
 import AppFooter from 'components/app-footer';
-import SidebarMenu from 'components/sidebar-menu';
 
 import { TBasicLayoutProps } from './types';
 
@@ -17,13 +15,15 @@ const View: FC<TBasicLayoutProps> = (props) => {
 
 	return (
 		<Layout className="base-ant-layout">
-			<AppHeader />
+			<AppSidebar>
+				<Sider trigger={null} collapsible collapsed={sidebarCollapsedStatus}>
+					<div className="logo" />
+					<div className="user-profile">
+						<Avatar size={64} icon={<UserOutlined />} />
+					</div>
+				</Sider>
+			</AppSidebar>
 			<Layout>
-				<AppSidebar>
-					<Sider trigger={null} collapsible collapsed={sidebarCollapsedStatus}>
-						<SidebarMenu />
-					</Sider>
-				</AppSidebar>
 				<Layout className="site-layout">
 					<Button
 						onClick={sidebarToggle}
