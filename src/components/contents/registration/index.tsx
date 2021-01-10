@@ -74,11 +74,11 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
 								{
 									min: 3,
-									message: 'Пароль должен быть не меньше 3-х символов',
+									message: 'Пароль должен быть не меньше 3-х символов!',
 								},
 								{
-									max: 12,
-									message: 'Пароль должен быть не больше 12 символов',
+									max: 16,
+									message: 'Пароль должен быть не больше 12 символов!',
 								},
 							]}
 						>
@@ -96,11 +96,11 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
 								{
 									min: 3,
-									message: 'Пароль должен быть не меньше 3-х символов',
+									message: 'Пароль должен быть не меньше 3-х символов!',
 								},
 								{
-									max: 12,
-									message: 'Пароль должен быть не больше 12 символов',
+									max: 16,
+									message: 'Пароль должен быть не больше 16 символов!',
 								},
 								({ getFieldValue }) => ({
 									validator(_, value) {
