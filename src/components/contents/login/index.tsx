@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Form, Input, Spin, Button } from 'antd';
+import { Form, Input, Spin, Button, Checkbox } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { Store } from 'antd/lib/form/interface';
@@ -79,6 +79,13 @@ const View: FC<TLoginComponentProps> = (props) => {
 								prefix={<LockOutlined className="site-form-item-icon" />}
 								placeholder="Пароль"
 							/>
+						</Form.Item>
+						<Form.Item className="auth-forgot-wrapper">
+							<Form.Item name="remember" valuePropName="checked" noStyle>
+								<Checkbox>Запомнить меня</Checkbox>
+							</Form.Item>
+
+							<a href="http://">Забыли пароль?</a>
 						</Form.Item>
 					</div>
 					<Form.Item className="auth-button-wrapper">

@@ -69,6 +69,7 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 
 						<Form.Item
 							name="password"
+							hasFeedback
 							rules={[
 								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
 								{
@@ -84,6 +85,37 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 							<Input.Password
 								prefix={<LockOutlined className="site-form-item-icon" />}
 								placeholder="Пароль"
+							/>
+						</Form.Item>
+
+						<Form.Item
+							name="confirm"
+							dependencies={['password']}
+							hasFeedback
+							rules={[
+								{ required: true, message: 'Пожалуйста, введите ваш пароль!' },
+								{
+									min: 3,
+									message: 'Пароль должен быть не меньше 3-х символов',
+								},
+								{
+									max: 12,
+									message: 'Пароль должен быть не больше 12 символов',
+								},
+								({ getFieldValue }) => ({
+									validator(_, value) {
+										if (!value || getFieldValue('password') === value) {
+											return Promise.resolve();
+										}
+
+										return Promise.reject(new TypeError('Пароли не совпадают!'));
+									},
+								}),
+							]}
+						>
+							<Input.Password
+								prefix={<LockOutlined className="site-form-item-icon" />}
+								placeholder="Подтвердите пароль"
 							/>
 						</Form.Item>
 					</div>
