@@ -59,10 +59,30 @@ body {
 	height: 100%;
 }
 
-.logo {
-	height: 32px;
-	margin: 16px;
-	background: rgba(255, 255, 255, 0.3);
+.header-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__text {
+		color: #fff;
+		font-size: 35px;
+	}
+
+	&__image {
+		width: 45px;
+		padding-top: 7px;
+	}
+
+	&__subtitle {
+		margin-left: 5px;
+		color: #fff;
+		font-size: 35px;
+	}
+}
+
+.logout-btn {
+	margin-left: 15px;
 }
 
 // =====================================================

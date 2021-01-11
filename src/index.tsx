@@ -7,7 +7,7 @@ import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 import App from './App';
 
-import 'assets/index.scss';
+import 'assets/styles/index.scss';
 
 import reportWebVitals from './reportWebVitals';
 
