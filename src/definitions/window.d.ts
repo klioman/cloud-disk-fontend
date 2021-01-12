@@ -16,5 +16,6 @@ export declare global {
 		$api: IApi;
 		$http: AxiosInstance;
 		$notify: Notify;
+		less: any;
 	}
 }

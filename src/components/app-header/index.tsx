@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Avatar, Button, Layout, Dropdown, Menu } from 'antd';
+import { Avatar, Button, Layout, Dropdown, Menu, Space, Switch } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { IStoreState } from 'redux/types';
@@ -18,6 +18,14 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 
 	const handleUserLogOut = () => {
 		logoutRequest();
+	};
+
+	const handleSwitchChange = (checked: boolean) => {
+		// less variables that will be used here must be declared in themeVariables on config-overrides.js
+
+		window.less.modifyVars({
+			'@primary-color': checked ? '#1c66a5' : '@blue-6',
+		});
 	};
 
 	const menu = (
@@ -50,6 +58,10 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 				</div>
 
 				<div>
+					<Space>
+						Change Color
+						<Switch onChange={handleSwitchChange} />
+					</Space>
 					<Dropdown overlay={menu} placement="bottomRight" arrow>
 						<Avatar icon={<UserOutlined />} />
 					</Dropdown>

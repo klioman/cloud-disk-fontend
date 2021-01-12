@@ -1,34 +1,35 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
+const path = require('path');
 const { override, fixBabelImports, addLessLoader, addWebpackPlugin } = require('customize-cra');
+const AntDesignThemePlugin = require('antd-theme-webpack-plugin');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
+const options = {
+	stylesDir: path.join(__dirname, './src/assets/styles'),
+	antDir: path.join(__dirname, './node_modules/antd'),
+	varFile: path.join(__dirname, './src/assets/styles/settings/variables.less'),
+	themeVariables: ['@primary-color'],
+	indexFileName: 'index.html',
+};
 
 module.exports = override(
-	fixBabelImports('import', {
+	fixBabelImports('antd', {
 		libraryName: 'antd',
 		libraryDirectory: 'es',
 		style: true,
 	}),
-	addLessLoader({
-		lessOptions: {
-			javascriptEnabled: true,
-			modifyVars: {
-				/*
-				|-------------------------------------------------------------------------------------------------------------------
-				| https://ant.design/docs/react/customize-theme
-				|-------------------------------------------------------------------------------------------------------------------
-				| variables - https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-				*/
-
-				// Colors
-				'@primary-color': '#00b67b',
-			},
-		},
-	}),
 	addWebpackPlugin(
+		new AntDesignThemePlugin(options),
 		new AntdDayjsWebpackPlugin({
 			preset: 'antdv3',
 		}),
 	),
+	addLessLoader({
+		lessOptions: {
+			javascriptEnabled: true,
+		},
+	}),
 );
