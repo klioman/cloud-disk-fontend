@@ -24,7 +24,7 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 		// less variables that will be used here must be declared in themeVariables on config-overrides.js
 
 		window.less.modifyVars({
-			'@primary-color': checked ? '#1c66a5' : '@blue-6',
+			'@primary-color': checked ? '#1c66a5' : '#00b67b',
 		});
 	};
 
