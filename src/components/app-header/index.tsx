@@ -4,6 +4,8 @@ import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { IStoreState } from 'redux/types';
 import { logoutRequest } from 'redux/reducers/auth/reducer';
+import darkVars from 'dark.json';
+import lightVars from 'light.json';
 import Logo from 'assets/image/icons/cloud.svg';
 import {
 	IAppHeaderMapDispatchToProps,
@@ -21,11 +23,9 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 	};
 
 	const handleSwitchChange = (checked: boolean) => {
-		// less variables that will be used here must be declared in themeVariables on config-overrides.js
+		const vars = checked ? darkVars : lightVars;
 
-		window.less.modifyVars({
-			'@primary-color': checked ? '#1c66a5' : '#00b67b',
-		});
+		window.less.modifyVars(vars);
 	};
 
 	const menu = (
@@ -59,12 +59,12 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 
 				<div>
 					<Space>
-						Change Color
+						<span style={{ color: '#ffffff' }}>Change Color</span>
 						<Switch onChange={handleSwitchChange} />
+						<Dropdown overlay={menu} placement="bottomRight" arrow>
+							<Avatar icon={<UserOutlined />} />
+						</Dropdown>
 					</Space>
-					<Dropdown overlay={menu} placement="bottomRight" arrow>
-						<Avatar icon={<UserOutlined />} />
-					</Dropdown>
 
 					<Button
 						className="logout-btn"

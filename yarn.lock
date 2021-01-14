@@ -2690,7 +2690,7 @@ antd-dayjs-webpack-plugin@^1.0.5:
   resolved "https://registry.yarnpkg.com/antd-dayjs-webpack-plugin/-/antd-dayjs-webpack-plugin-1.0.5.tgz#1896df6972714655ff06f16bed6210531077eee2"
   integrity sha512-j2EqR0GbVxbcDxKIE4BX+AmJNJXTtm+Ru0Q5UhxtGfQ/ftPy/Xr85yKpj2ltVfXRIL0g0kwM2XYtB7sqBgWn9w==
 
-antd-theme-generator@^1.2.7:
+antd-theme-generator@^1.2.7, antd-theme-generator@^1.2.8:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/antd-theme-generator/-/antd-theme-generator-1.2.8.tgz#8f1ef814afd7d0c99c12de25e477cc44323607a0"
   integrity sha512-OnwWT76ax7BRiDnZW2Ak3LoJaFlmq9TWt0IwinnjXmNkHfkjtu18Z+ZeViYtz0OT9NnnTmm2ArBC/FdYlKmQVw==
