@@ -13,7 +13,7 @@ const persistConfig = {
 			},
 		}),
 	],
-	whitelist: ['authReducer'],
+	whitelist: ['authReducer', 'appReducer'],
 };
 
 export { persistConfig };
