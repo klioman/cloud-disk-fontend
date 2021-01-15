@@ -4,8 +4,8 @@ import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { IStoreState } from 'redux/types';
 import { logoutRequest } from 'redux/reducers/auth/reducer';
-import darkVars from 'dark.json';
-import lightVars from 'light.json';
+import darkVars from 'assets/styles/theme/dark.json';
+import lightVars from 'assets/styles/theme/light.json';
 import Logo from 'assets/image/icons/cloud.svg';
 import {
 	IAppHeaderMapDispatchToProps,

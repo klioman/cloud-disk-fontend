@@ -158,5 +158,5 @@
 	"@progress-circle-text-font-size": "0.833333em",
 	"@image-size-base": "48px",
 	"@image-font-size-base": "24px",
-	"@primary-color": "@blue-6"
+	"@primary-color": "#00b67b"
 }

@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-const fs = require('fs');
 const path = require('path');
 const { override, fixBabelImports, addLessLoader, addWebpackPlugin } = require('customize-cra');
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin');
@@ -23,9 +22,6 @@ const lightVars = {
 	...getLessVars('./node_modules/antd/lib/style/themes/compact.less'),
 	'@primary-color': defaultVars['@primary-color'],
 };
-fs.writeFileSync('./src/dark.json', JSON.stringify(darkVars));
-fs.writeFileSync('./src/light.json', JSON.stringify(lightVars));
-fs.writeFileSync('./src/theme.json', JSON.stringify(themeVariables));
 // ===============================================:
 
 const options = {

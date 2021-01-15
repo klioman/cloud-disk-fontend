@@ -277,6 +277,6 @@
 	"@timeline-color": "@border-color-split",
 	"@timeline-dot-color": "@primary-color",
 	"@mentions-dropdown-bg": "@popover-background",
-	"@primary-color": "@blue-6",
+	"@primary-color": "#00b67b",
 	"@picker-basic-cell-active-with-range-color": "darken(@primary-color, 20%)"
 }
