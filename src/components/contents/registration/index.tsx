@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Store } from 'antd/lib/form/interface';
-import { Form, Input, Button, Spin } from 'antd';
+import { Form, Input, Button, Spin, Card } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { registrationRequest } from 'redux/reducers/auth/reducer';
 import { ILoginRequestPayload } from 'redux/reducers/auth/types';
@@ -32,13 +32,14 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 	};
 
 	return (
-		<div
+		<Card
+			title="Регистрация:"
 			className={`auth-form-wrapper auth-form-wrapper--regitrstion ${
 				position ? 'active-sx' : 'inactive-sx'
 			}`}
+			bordered={false}
 		>
 			<Spin tip="Загрузка..." spinning={isLoading}>
-				<h3 className="auth-form-wrapper__title">Регистрация:</h3>
 				<Form
 					className="registration-form"
 					name="user-login"
@@ -136,7 +137,7 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 					</Form.Item>
 				</Form>
 			</Spin>
-		</div>
+		</Card>
 	);
 };
 

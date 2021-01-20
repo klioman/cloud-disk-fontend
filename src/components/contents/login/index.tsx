@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Form, Input, Spin, Button, Checkbox } from 'antd';
+import { Form, Input, Spin, Button, Checkbox, Card } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { Store } from 'antd/lib/form/interface';
@@ -28,13 +28,15 @@ const View: FC<TLoginComponentProps> = (props) => {
 	};
 
 	return (
-		<div
+		<Card
+			title="Вход:"
 			className={`auth-form-wrapper auth-form-wrapper--login ${
 				position ? 'inactive-dx' : 'active-dx'
 			}`}
+			bordered={false}
 		>
 			<Spin tip="Загрузка..." spinning={isLoading}>
-				<h3 className="auth-form-wrapper__title">Вход:</h3>
+				{/* <h3 className="auth-form-wrapper__title">Вход:</h3> */}
 				<Form
 					className="login-form"
 					name="user-login"
@@ -106,7 +108,7 @@ const View: FC<TLoginComponentProps> = (props) => {
 					</Form.Item>
 				</Form>
 			</Spin>
-		</div>
+		</Card>
 	);
 };
 
