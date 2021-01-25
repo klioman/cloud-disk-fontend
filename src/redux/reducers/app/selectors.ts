@@ -11,3 +11,9 @@ export const getSidebarCollapsed = createSelector(
 	[getAppState],
 	(appSidebar) => appSidebar.sidebar.collapsed,
 );
+
+// ====================================================:
+export const getDarkColorTheme = createSelector(
+	[getAppState],
+	(appColorTheme) => appColorTheme.darkColorTheme,
+);

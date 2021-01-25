@@ -25,8 +25,8 @@ const View: FC<any> = (props) => {
 };
 
 // ================= Container: =================
-const mapStateToProps = (store: IStoreState): any => {
-	return { isUserAuth: getAuthIsAuthenticated(store) };
+const mapStateToProps = (state: IStoreState): any => {
+	return { isUserAuth: getAuthIsAuthenticated(state) };
 };
 const mapDispatchToProps: any = {};
 const AppSuspense = connect(mapStateToProps, mapDispatchToProps)(View);

@@ -142,8 +142,8 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 };
 
 // ==================== Container: ====================
-const mapStateToProps = (store: IStoreState): IRegistrationIMapStateToProps => {
-	return { isLoading: getAuthIsLoad(store) };
+const mapStateToProps = (state: IStoreState): IRegistrationIMapStateToProps => {
+	return { isLoading: getAuthIsLoad(state) };
 };
 const mapDispatchToProps: IRegistrationMapDispatchToProps = { registrationRequest };
 const Registration = connect(mapStateToProps, mapDispatchToProps)(View);

@@ -3,8 +3,11 @@ import { PayloadAction } from '@reduxjs/toolkit';
 // ============================
 export interface IAppHeaderMapDispatchToProps {
 	logoutRequest(): PayloadAction;
+	darkColorThemeToggle(): any;
 }
-export interface IAppHeaderMapStateToProps {}
+export interface IAppHeaderMapStateToProps {
+	darkTheme: boolean;
+}
 
 type TConnectProps = IAppHeaderMapStateToProps & IAppHeaderMapDispatchToProps;
 

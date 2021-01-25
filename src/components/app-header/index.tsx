@@ -4,9 +4,13 @@ import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { IStoreState } from 'redux/types';
 import { logoutRequest } from 'redux/reducers/auth/reducer';
+import { darkColorThemeToggle } from 'redux/reducers/app/reducer';
+import { getDarkColorTheme } from 'redux/reducers/app/selectors';
+
 import darkVars from 'assets/styles/theme/dark.json';
 import lightVars from 'assets/styles/theme/light.json';
 import Logo from 'assets/image/icons/cloud.svg';
+
 import {
 	IAppHeaderMapDispatchToProps,
 	IAppHeaderMapStateToProps,
@@ -15,17 +19,18 @@ import {
 
 // ===================================================
 const View: FC<TAppHeaderComponentProps> = (props) => {
-	const { logoutRequest } = props;
+	const { darkTheme, logoutRequest, darkColorThemeToggle } = props;
 	const { Header } = Layout;
+
+	const vars = darkTheme ? darkVars : lightVars;
+	window.less.modifyVars(vars);
 
 	const handleUserLogOut = () => {
 		logoutRequest();
 	};
 
-	const handleSwitchChange = (checked: boolean) => {
-		const vars = checked ? darkVars : lightVars;
-
-		window.less.modifyVars(vars);
+	const handleSwitchChange = () => {
+		darkColorThemeToggle();
 	};
 
 	const menu = (
@@ -59,8 +64,8 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 
 				<div>
 					<Space>
-						<span style={{ color: '#ffffff' }}>Change Color</span>
-						<Switch onChange={handleSwitchChange} />
+						<span style={{ color: '#ffffff' }}>Темная тема</span>
+						<Switch onChange={handleSwitchChange} checked={darkTheme} />
 						<Dropdown overlay={menu} placement="bottomRight" arrow>
 							<Avatar icon={<UserOutlined />} />
 						</Dropdown>
@@ -81,10 +86,12 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 };
 
 // ================= Container: =================
-const mapStateToProps = (store: IStoreState): IAppHeaderMapStateToProps => {
-	return { store };
+const mapStateToProps = (state: IStoreState): IAppHeaderMapStateToProps => {
+	return {
+		darkTheme: getDarkColorTheme(state),
+	};
 };
-const mapDispatchToProps: IAppHeaderMapDispatchToProps = { logoutRequest };
+const mapDispatchToProps: IAppHeaderMapDispatchToProps = { logoutRequest, darkColorThemeToggle };
 const AppHeader = connect(mapStateToProps, mapDispatchToProps)(View);
 
 export default AppHeader;

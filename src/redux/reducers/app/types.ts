@@ -10,5 +10,6 @@ export interface ISidebar {
 export type TLangs = ValuesOfObject<typeof OLangs>;
 export type TLangsOrEmpty = TLangs | '';
 export interface IAppStore {
+	darkColorTheme: boolean;
 	sidebar: ISidebar;
 }

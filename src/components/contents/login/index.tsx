@@ -113,8 +113,8 @@ const View: FC<TLoginComponentProps> = (props) => {
 };
 
 // ================= Container: =================
-const mapStateToProps = (store: IStoreState): ILoginIMapStateToProps => {
-	return { isLoading: getAuthIsLoad(store) };
+const mapStateToProps = (state: IStoreState): ILoginIMapStateToProps => {
+	return { isLoading: getAuthIsLoad(state) };
 };
 const mapDispatchToProps: ILoginMapDispatchToProps = { loginRequest };
 const Login = connect(mapStateToProps, mapDispatchToProps)(View);
