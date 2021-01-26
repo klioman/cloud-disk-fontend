@@ -4,6 +4,7 @@ import { ReactElement } from 'react';
 export interface IBasicLayoutMapStateToProps {
 	sidebarCollapsedStatus?: boolean;
 	children?: ReactElement;
+	darkTheme: boolean;
 }
 export interface IBasicLayoutMapDispatchToProps {
 	sidebarToggle: () => void;

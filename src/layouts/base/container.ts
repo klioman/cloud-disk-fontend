@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSidebarCollapsed } from 'redux/reducers/app/selectors';
+import { getSidebarCollapsed, getDarkColorTheme } from 'redux/reducers/app/selectors';
 import { IStoreState } from 'redux/types';
 import { sidebarToggle } from 'redux/reducers/app/reducer';
 import { View } from './view';
@@ -10,6 +10,7 @@ import { IBasicLayoutMapDispatchToProps, IBasicLayoutMapStateToProps } from './t
 const mapStateToProps = (state: IStoreState): IBasicLayoutMapStateToProps => {
 	return {
 		sidebarCollapsedStatus: getSidebarCollapsed(state),
+		darkTheme: getDarkColorTheme(state),
 	};
 };
 const mapDispatchToProps: IBasicLayoutMapDispatchToProps = {

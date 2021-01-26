@@ -6,9 +6,6 @@ import { IStoreState } from 'redux/types';
 import { logoutRequest } from 'redux/reducers/auth/reducer';
 import { darkColorThemeToggle } from 'redux/reducers/app/reducer';
 import { getDarkColorTheme } from 'redux/reducers/app/selectors';
-
-import darkVars from 'assets/styles/theme/dark.json';
-import lightVars from 'assets/styles/theme/light.json';
 import Logo from 'assets/image/icons/cloud.svg';
 
 import {
@@ -21,9 +18,6 @@ import {
 const View: FC<TAppHeaderComponentProps> = (props) => {
 	const { darkTheme, logoutRequest, darkColorThemeToggle } = props;
 	const { Header } = Layout;
-
-	const vars = darkTheme ? darkVars : lightVars;
-	window.less.modifyVars(vars);
 
 	const handleUserLogOut = () => {
 		logoutRequest();
