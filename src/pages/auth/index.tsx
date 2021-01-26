@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import EmptyLayout from 'layouts/empty';
-import Registration from 'components/contents/registration';
-import Login from 'components/contents/login';
+import Login from 'contents/login';
+import Registration from 'contents/registration';
 
 // =====================================:
 const Auth: FC = () => {

@@ -29,6 +29,6 @@ const mapStateToProps = (state: IStoreState): any => {
 	return { isUserAuth: getAuthIsAuthenticated(state) };
 };
 const mapDispatchToProps: any = {};
-const AppSuspense = connect(mapStateToProps, mapDispatchToProps)(View);
+const Suspense = connect(mapStateToProps, mapDispatchToProps)(View);
 
-export default AppSuspense;
+export default Suspense;

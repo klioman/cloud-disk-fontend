@@ -11,6 +11,6 @@ const mapStateToProps = (state: IStoreState): IAppSidebarMapStateToProps => {
 		sidebarCollapsedStatus: getSidebarCollapsed(state),
 	};
 };
-const AppSidebar = connect(mapStateToProps, null)(View);
+const Sidebar = connect(mapStateToProps, null)(View);
 
-export { AppSidebar };
+export { Sidebar };
