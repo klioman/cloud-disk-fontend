@@ -6,8 +6,8 @@
 		"@ant-design/icons": "^4.4.0",
 		"@reduxjs/toolkit": "^1.5.0",
 		"@testing-library/jest-dom": "^5.11.9",
-		"@testing-library/react": "^11.2.3",
-		"@testing-library/user-event": "^12.6.2",
+		"@testing-library/react": "^11.2.4",
+		"@testing-library/user-event": "^12.6.3",
 		"@types/history": "^4.7.8",
 		"@types/jest": "^26.0.20",
 		"@types/node": "^14.14.22",
@@ -26,7 +26,7 @@
 		"connected-react-router": "^6.8.0",
 		"customize-cra": "^1.0.0",
 		"history": "^5.0.0",
-		"less": "^4.1.0",
+		"less": "^4.1.1",
 		"less-loader": "^7.3.0",
 		"react": "^17.0.1",
 		"react-app-rewired": "^2.1.8",
@@ -102,12 +102,12 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^11.0.0",
-		"@typescript-eslint/eslint-plugin": "^4.14.1",
-		"@typescript-eslint/parser": "^4.14.1",
+		"@typescript-eslint/eslint-plugin": "^4.14.2",
+		"@typescript-eslint/parser": "^4.14.2",
 		"babel-plugin-import": "^1.13.3",
 		"commitizen": "^4.2.3",
 		"cz-customizable": "^6.3.0",
-		"eslint": "^7.18.0",
+		"eslint": "^7.19.0",
 		"eslint-config-airbnb": "^18.2.1",
 		"eslint-config-prettier": "^7.2.0",
 		"eslint-plugin-import": "^2.22.1",
@@ -126,6 +126,6 @@
 		"stylelint-order": "^4.1.0",
 		"stylelint-prettier": "^1.1.2",
 		"stylelint-scss": "^3.18.0",
-		"ts-jest": "^26.4.4"
+		"ts-jest": "^26.5.0"
 	}
 }
