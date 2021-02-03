@@ -18,7 +18,12 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 	const { registrationRequest, isLoading, animationStatus, changePosition, position } = props;
 
 	const onFinish = (values: ILoginRequestPayload) => {
-		registrationRequest(values);
+		const registrationValue = {
+			email: values.email,
+			password: values.password,
+		};
+
+		registrationRequest(registrationValue);
 	};
 
 	const onFinishFailed = (errorInfo: Store) => {

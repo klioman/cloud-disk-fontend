@@ -20,6 +20,11 @@ export interface ILoginRequestPayload {
 	password: string;
 }
 
+export interface IRegistrationRequestPayload {
+	email: string;
+	password: string;
+}
+
 export interface IUserAuth {
 	permissions: IUserPermissions;
 	tokens: IToken;
@@ -36,4 +41,6 @@ export interface IAuthStore {
 }
 
 export interface ILoginSuccessPayload extends IUserAuth {}
+export interface IRegistrationSuccessPayload extends IUserAuth {}
+
 export interface IRefreshTokenRequestPayload extends Pick<IToken, 'refreshToken'> {}

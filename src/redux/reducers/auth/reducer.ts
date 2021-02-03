@@ -1,5 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IToken, IAuthStore, ILoginSuccessPayload, ILoginRequestPayload } from './types';
+import {
+	IToken,
+	IAuthStore,
+	ILoginSuccessPayload,
+	ILoginRequestPayload,
+	IRegistrationSuccessPayload,
+	IRegistrationRequestPayload,
+} from './types';
 
 export const initialState: IAuthStore = {
 	isAuthLoader: false,
@@ -39,13 +46,13 @@ const authReducer = createSlice({
 			authErrorsState.errorsList = payload.errors;
 		},
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		registrationRequest: (state, action: any) => {
+		registrationRequest: (state, action: PayloadAction<IRegistrationRequestPayload>) => {
 			const registrationRequestState = state;
 
 			registrationRequestState.isAuthLoader = true;
 			registrationRequestState.errorsList = [];
 		},
-		registrationSuccess: (state, action: PayloadAction<ILoginSuccessPayload>) => {
+		registrationSuccess: (state, action: PayloadAction<IRegistrationSuccessPayload>) => {
 			const { payload } = action;
 			const registrationSuccessState = state;
 
