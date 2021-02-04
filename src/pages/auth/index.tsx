@@ -1,7 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC, Suspense, lazy, useState } from 'react';
 import EmptyLayout from 'layouts/empty';
-import Login from 'contents/login';
-import Registration from 'contents/registration';
+
+const Login = lazy(() => import('contents/login'));
+const Registration = lazy(() => import('contents/registration'));
 
 // ==========================================:
 const Auth: FC = () => {
@@ -10,8 +11,10 @@ const Auth: FC = () => {
 
 	return (
 		<EmptyLayout classname={formAnimation ? 'change-form-active' : 'change-form-no-active'}>
-			<Login animationStatus={setFormAnimation} position={auth} changePosition={setAuth} />
-			<Registration animationStatus={setFormAnimation} position={auth} changePosition={setAuth} />
+			<Suspense fallback={<div>Загрузка...</div>}>
+				<Login animationStatus={setFormAnimation} position={auth} changePosition={setAuth} />
+				<Registration animationStatus={setFormAnimation} position={auth} changePosition={setAuth} />
+			</Suspense>
 		</EmptyLayout>
 	);
 };

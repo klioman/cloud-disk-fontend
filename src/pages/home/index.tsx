@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, Suspense, lazy } from 'react';
 import BasicLayout from 'layouts/base';
-import HomeContent from 'contents/home';
+
+const HomeContent = lazy(() => import('contents/home'));
 
 // ==========================================:
 const Home: FC = () => {
 	return (
 		<BasicLayout>
-			<HomeContent />
+			<Suspense fallback={<div>Загрузка...</div>}>
+				<HomeContent />
+			</Suspense>
 		</BasicLayout>
 	);
 };
