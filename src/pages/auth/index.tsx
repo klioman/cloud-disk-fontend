@@ -3,7 +3,7 @@ import EmptyLayout from 'layouts/empty';
 import Login from 'contents/login';
 import Registration from 'contents/registration';
 
-// =====================================:
+// ==========================================:
 const Auth: FC = () => {
 	const [auth, setAuth] = useState(false);
 	const [formAnimation, setFormAnimation] = useState(false);

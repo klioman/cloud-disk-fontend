@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Layout } from 'antd';
 
+// ==========================================:
 const Footer: FC = () => {
 	const { Footer } = Layout;
 

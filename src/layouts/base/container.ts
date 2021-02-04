@@ -6,7 +6,7 @@ import { View } from './view';
 
 import { IBasicLayoutMapDispatchToProps, IBasicLayoutMapStateToProps } from './types';
 
-// ================================================
+// ==========================================:
 const mapStateToProps = (state: IStoreState): IBasicLayoutMapStateToProps => {
 	return {
 		sidebarCollapsedStatus: getSidebarCollapsed(state),

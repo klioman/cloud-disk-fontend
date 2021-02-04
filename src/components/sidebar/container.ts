@@ -5,7 +5,7 @@ import { IAppSidebarMapStateToProps } from './types';
 
 import { View } from './view';
 
-// ================================================
+// ==========================================:
 const mapStateToProps = (state: IStoreState): IAppSidebarMapStateToProps => {
 	return {
 		sidebarCollapsedStatus: getSidebarCollapsed(state),

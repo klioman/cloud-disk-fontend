@@ -7,7 +7,7 @@ import lightVars from 'assets/styles/theme/light.json';
 
 import { TBasicLayoutProps } from './types';
 
-// ===============================================================
+// ==========================================:
 const View: FC<TBasicLayoutProps> = (props) => {
 	const { darkTheme } = props;
 
