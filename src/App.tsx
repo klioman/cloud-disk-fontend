@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
 import { isAuth, isGuest } from 'routes/authMiddlewares';
 
 import Home from 'pages/home';
 import Auth from 'pages/auth';
-import Page404 from 'pages/page404';
 
 const App: FC = () => {
 	return (
@@ -12,7 +11,7 @@ const App: FC = () => {
 			<Switch>
 				<Route path="/" exact component={isAuth(Home)} />
 				<Route path="/auth" exact component={isGuest(Auth)} />
-				<Route path="*" component={Page404} />
+				<Redirect to="/" />
 			</Switch>
 		</BrowserRouter>
 	);
