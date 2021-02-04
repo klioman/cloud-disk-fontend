@@ -32,7 +32,6 @@ const View: FC<TLoginComponentProps> = (props) => {
 			bordered={false}
 		>
 			<Spin tip="Загрузка..." spinning={isLoading}>
-				{/* <h3 className="auth-form-wrapper__title">Вход:</h3> */}
 				<Form
 					className="login-form"
 					name="user-login"

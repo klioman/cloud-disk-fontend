@@ -25,10 +25,9 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 					<img className="header-logo__image" src={Logo} alt="logo" />
 					<span className="header-logo__subtitle">Cloud</span>
 				</div>
-
-				<div>
+				<div className="header-content">
 					<Space>
-						<span style={{ color: '#ffffff' }}>Темная тема</span>
+						<span className="switch-theme-text">Темная тема</span>
 						<Switch onChange={handleSwitchChange} checked={darkTheme} />
 					</Space>
 
