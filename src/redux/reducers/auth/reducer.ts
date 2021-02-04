@@ -13,7 +13,6 @@ export const initialState: IAuthStore = {
 	isLogoutLoader: false,
 	isAuthenticated: false,
 	userPermissions: [],
-	errorsList: [],
 	token: null,
 };
 
@@ -26,7 +25,6 @@ const authReducer = createSlice({
 			const loginRequestState = state;
 
 			loginRequestState.isAuthLoader = true;
-			loginRequestState.errorsList = [];
 		},
 		loginSuccess: (state, action: PayloadAction<ILoginSuccessPayload>) => {
 			const { payload } = action;
@@ -36,21 +34,13 @@ const authReducer = createSlice({
 			loginSuccessState.isAuthLoader = false;
 			loginSuccessState.userPermissions = payload.permissions;
 			loginSuccessState.token = payload.tokens;
-			loginSuccessState.errorsList = [];
 		},
 		authFail: () => initialState,
-		authErrors: (state, action: any) => {
-			const { payload } = action;
-			const authErrorsState = state;
-
-			authErrorsState.errorsList = payload.errors;
-		},
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		registrationRequest: (state, action: PayloadAction<IRegistrationRequestPayload>) => {
 			const registrationRequestState = state;
 
 			registrationRequestState.isAuthLoader = true;
-			registrationRequestState.errorsList = [];
 		},
 		registrationSuccess: (state, action: PayloadAction<IRegistrationSuccessPayload>) => {
 			const { payload } = action;
@@ -59,13 +49,11 @@ const authReducer = createSlice({
 			registrationSuccessState.isAuthenticated = true;
 			registrationSuccessState.isAuthLoader = false;
 			registrationSuccessState.token = payload.tokens;
-			registrationSuccessState.errorsList = [];
 		},
 		logoutRequest: (state) => {
 			const logoutSuccessState = state;
 
 			logoutSuccessState.isLogoutLoader = true;
-			logoutSuccessState.errorsList = [];
 		},
 		logoutSuccess: () => initialState,
 		refreshTokenSuccess: (state, action: PayloadAction<IToken>) => {
@@ -73,7 +61,6 @@ const authReducer = createSlice({
 			const refreshTokenState = state;
 
 			refreshTokenState.token = payload;
-			refreshTokenState.errorsList = [];
 		},
 	},
 });
@@ -87,7 +74,6 @@ export const {
 	registrationSuccess,
 	logoutRequest,
 	authFail,
-	authErrors,
 	logoutSuccess,
 	refreshTokenSuccess,
 } = authReducer.actions;

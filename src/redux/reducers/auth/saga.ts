@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { api, Notify } from 'services';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { loginSuccess, authFail, logoutSuccess, authErrors } from './reducer';
+import { loginSuccess, authFail, logoutSuccess } from './reducer';
 import { ILoginRequestPayload, IUserAuth } from './types';
 
 // =============================================================:
@@ -34,7 +34,6 @@ function* registrationRequestWorker(action: PayloadAction<any>) {
 
 		if (error.response) {
 			Notify.error(error.response.data.message);
-			yield put(authErrors(error.response.data.errors));
 		}
 	}
 }
