@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
+import { Typography } from 'antd';
 
 // ==========================================:
 const HomeContent: FC = () => {
+	const { Title } = Typography;
+
 	return (
 		<>
-			<h1>Home page</h1>
-			<h6>Home subtitle</h6>
+			<Title level={2}>Home page</Title>
+			<Title level={4}>Home subtitle</Title>
 		</>
 	);
 };
