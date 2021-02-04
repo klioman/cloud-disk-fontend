@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Avatar, Button, Layout, Dropdown, Menu, Space, Switch } from 'antd';
-import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Layout, Space, Switch } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
 import Logo from 'assets/image/icons/cloud.svg';
 import { TAppHeaderComponentProps } from './types';
 
@@ -17,26 +17,6 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 		darkColorThemeToggle();
 	};
 
-	const menu = (
-		<Menu>
-			<Menu.Item>
-				<a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-					1st menu item 1st
-				</a>
-			</Menu.Item>
-			<Menu.Item>
-				<a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-					2nd menu item 2nd
-				</a>
-			</Menu.Item>
-			<Menu.Item>
-				<a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-					3rd menu item 3rd
-				</a>
-			</Menu.Item>
-		</Menu>
-	);
-
 	return (
 		<Header className="header">
 			<div className="header-wrapper">
@@ -50,9 +30,6 @@ const View: FC<TAppHeaderComponentProps> = (props) => {
 					<Space>
 						<span style={{ color: '#ffffff' }}>Темная тема</span>
 						<Switch onChange={handleSwitchChange} checked={darkTheme} />
-						<Dropdown overlay={menu} placement="bottomRight" arrow>
-							<Avatar icon={<UserOutlined />} />
-						</Dropdown>
 					</Space>
 
 					<Button
