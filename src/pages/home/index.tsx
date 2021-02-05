@@ -1,5 +1,6 @@
 import React, { FC, Suspense, lazy } from 'react';
 import BasicLayout from 'layouts/base';
+import SuspenseLoader from 'components/suspense-loader';
 
 const HomeContent = lazy(() => import('contents/home'));
 
@@ -7,7 +8,7 @@ const HomeContent = lazy(() => import('contents/home'));
 const Home: FC = () => {
 	return (
 		<BasicLayout>
-			<Suspense fallback={<div>Загрузка...</div>}>
+			<Suspense fallback={<SuspenseLoader />}>
 				<HomeContent />
 			</Suspense>
 		</BasicLayout>
