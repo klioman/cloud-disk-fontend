@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Layout } from 'antd';
 
 import darkVars from 'assets/styles/theme/dark.json';
@@ -11,7 +11,10 @@ const View: FC<TEmptyLayoutProps> = (props) => {
 	const { classname = '', darkTheme, children } = props;
 
 	const vars = darkTheme ? darkVars : lightVars;
-	window.less.modifyVars(vars);
+
+	useEffect(() => {
+		window.less.modifyVars(vars);
+	}, [darkTheme]);
 
 	return <Layout className={`${classname} empty-layout`}>{children}</Layout>;
 };

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Card, Layout } from 'antd';
 import Header from 'components/header';
 import Footer from 'components/footer';
@@ -14,7 +14,10 @@ const View: FC<TBasicLayoutProps> = (props) => {
 	const { Content } = Layout;
 
 	const vars = darkTheme ? darkVars : lightVars;
-	window.less.modifyVars(vars);
+
+	useEffect(() => {
+		window.less.modifyVars(vars);
+	}, [darkTheme]);
 
 	return (
 		<Layout className="base-ant-layout">
