@@ -25,7 +25,6 @@ const lightVars = {
 // ===============================================:
 
 const options = {
-	stylesDir: path.join(__dirname, './src/assets/styles'),
 	antDir: path.join(__dirname, './node_modules/antd'),
 	varFile: path.join(__dirname, './src/assets/styles/settings/variables.less'),
 	themeVariables: Array.from(
