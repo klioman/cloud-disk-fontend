@@ -17,7 +17,7 @@ const App: FC = () => {
 				render={({ location }) => (
 					<>
 						<NpProgress isAnimating={isLoading} />
-						<TransitionGroup style={{ height: '100%', overflow: 'hidden' }}>
+						<TransitionGroup className="route-wrapper">
 							<CSSTransition
 								classNames="fade"
 								key={location.key}

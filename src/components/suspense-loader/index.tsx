@@ -4,15 +4,7 @@ import { Spin } from 'antd';
 // ==========================================:
 const SuspenseLoader: FC = () => {
 	return (
-		<div
-			style={{
-				width: '100%',
-				height: '100%',
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-			}}
-		>
+		<div className="suspense-loader">
 			<Spin size="large" />
 		</div>
 	);
