@@ -3,4 +3,5 @@ import { IAuthApi } from './auth/types';
 
 export interface IApi extends PlainObject {
 	auth: IAuthApi;
+	files: any;
 }

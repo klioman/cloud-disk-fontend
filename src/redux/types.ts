@@ -6,4 +6,5 @@ export interface IStoreState {
 	router: IRouterState;
 	appReducer: IAppStore;
 	authReducer: IAuthStore;
+	fileReducer: any;
 }

@@ -5,4 +5,7 @@ export const endpoint = {
 		REFRESH_TOKEN: '/auth/refresh-tokens',
 		LOGOUT: '/auth/logout',
 	},
+	files: {
+		FILES: '/files',
+	},
 };
