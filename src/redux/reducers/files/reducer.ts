@@ -11,7 +11,7 @@ const fileReducer = createSlice({
 	initialState,
 	reducers: {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		fileListRequest: (state, action: PayloadAction<any>) => {
+		fileListRequest: (state) => {
 			const fileRequestState = state;
 
 			fileRequestState.isfileListLoader = true;

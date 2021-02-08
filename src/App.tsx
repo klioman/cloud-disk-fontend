@@ -11,6 +11,10 @@ import Auth from 'pages/auth';
 const App: FC = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
+	const changeRouter = () => {
+		setIsLoading(!isLoading);
+	};
+
 	return (
 		<BrowserRouter>
 			<Route
@@ -20,12 +24,12 @@ const App: FC = () => {
 						<TransitionGroup className="route-wrapper">
 							<CSSTransition
 								classNames="fade"
-								key={location.key}
+								key={location.pathname.split('/')[1]}
 								onEnter={() => {
-									setIsLoading(true);
+									changeRouter();
 								}}
 								onEntered={() => {
-									setIsLoading(false);
+									changeRouter();
 								}}
 								timeout={0}
 							>
