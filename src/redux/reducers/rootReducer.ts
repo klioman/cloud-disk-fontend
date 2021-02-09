@@ -1,5 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { connectRouter } from 'connected-react-router';
+import { loadingBarReducer } from 'react-redux-loading-bar';
 import { History } from 'history';
 
 import appReducer from './app/reducer';
@@ -9,6 +10,7 @@ import fileReducer from './files/reducer';
 const createRootReducer = (history: History) =>
 	combineReducers({
 		router: connectRouter(history),
+		loadingBar: loadingBarReducer,
 		appReducer,
 		authReducer,
 		fileReducer,
