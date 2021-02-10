@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IFileStore } from './types';
+import { IFileList, IFileStore } from './types';
 
 export const initialState: IFileStore = {
-	fileList: [],
+	fileList: null,
 	isfileListLoader: false,
 };
 
@@ -10,14 +10,12 @@ const fileReducer = createSlice({
 	name: '@@file',
 	initialState,
 	reducers: {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		fileListRequest: (state) => {
 			const fileRequestState = state;
 
 			fileRequestState.isfileListLoader = true;
 		},
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		fileListSuccess: (state, action: PayloadAction<any>) => {
+		fileListSuccess: (state, action: PayloadAction<IFileList>) => {
 			const { payload } = action;
 			const fileListSuccessState = state;
 

@@ -1,16 +1,14 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { PayloadAction } from '@reduxjs/toolkit';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { api, Notify } from 'services';
 import { fileListSuccess } from './reducer';
+import { IFileList } from './types';
 
 // =============================================================:
-function* loginRequestWorker(action: PayloadAction<any>) {
-	const { payload } = action;
-
+function* fileListRequestWorker() {
 	try {
 		yield put(showLoading());
-		const response: any = yield call(api.files.filesList, payload);
+		const response: IFileList = yield call(api.files.filesList);
 
 		// eslint-disable-next-line no-console
 		console.log('file list: ', response);
@@ -27,5 +25,5 @@ function* loginRequestWorker(action: PayloadAction<any>) {
 
 // =============================================================:
 export function* fileSaga() {
-	yield takeEvery('@@file/fileListRequest', loginRequestWorker);
+	yield takeEvery('@@file/fileListRequest', fileListRequestWorker);
 }
