@@ -3,7 +3,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { api, Notify } from 'services';
 import { loginSuccess, authFail, logoutSuccess } from './reducer';
-import { ILoginRequestPayload, IUserAuth } from './types';
+import { ILoginRequestPayload, IRegistrationRequestPayload, IUserAuth } from './types';
 
 // =============================================================:
 function* loginRequestWorker(action: PayloadAction<ILoginRequestPayload>) {
@@ -25,7 +25,7 @@ function* loginRequestWorker(action: PayloadAction<ILoginRequestPayload>) {
 }
 
 // =============================================================:
-function* registrationRequestWorker(action: PayloadAction<any>) {
+function* registrationRequestWorker(action: PayloadAction<IRegistrationRequestPayload>) {
 	const { payload } = action;
 
 	try {
