@@ -10,7 +10,7 @@ import Auth from 'pages/auth';
 const App: FC = () => {
 	return (
 		<>
-			<LoadingBar style={{ backgroundColor: '#00b67b', height: '3px' }} />
+			<LoadingBar className="loading-bar" />
 			<BrowserRouter>
 				<Switch>
 					<Route path="/" exact component={isAuth(Home)} />
