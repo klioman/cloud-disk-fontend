@@ -1,16 +1,9 @@
 import React, { FC } from 'react';
-import { Typography } from 'antd';
+import FilesList from 'components/files-list';
 
 // ==========================================:
 const HomeContent: FC = () => {
-	const { Title } = Typography;
-
-	return (
-		<>
-			<Title level={2}>Home page</Title>
-			<Title level={4}>Home subtitle</Title>
-		</>
-	);
+	return <FilesList />;
 };
 
 export default HomeContent;
