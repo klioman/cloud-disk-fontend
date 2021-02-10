@@ -1,5 +1,5 @@
 export interface IFileStore {
-	fileList: IFileList | null;
+	fileList: IFileList | never[];
 	isfileListLoader: boolean;
 }
 

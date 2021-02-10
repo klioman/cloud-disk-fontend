@@ -3,7 +3,7 @@ import { IStoreState } from 'redux/types';
 import { IFileStore } from './types';
 
 const getFilesState = (state: IStoreState): IFileStore => state.fileReducer;
-export const getFiles = createSelector([getFilesState], (fileList: any) => fileList);
+export const getFiles = createSelector([getFilesState], (fileItem: IFileStore) => fileItem);
 
 // ====================================================:
-export const getFilesList = createSelector([getFiles], (filesList: IFileStore): any => filesList);
+export const getFilesList = createSelector([getFiles], (fileItem: IFileStore) => fileItem.fileList);

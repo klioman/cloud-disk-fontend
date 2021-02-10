@@ -9,10 +9,6 @@ function* fileListRequestWorker() {
 	try {
 		yield put(showLoading());
 		const response: IFileList = yield call(api.files.filesList);
-
-		// eslint-disable-next-line no-console
-		console.log('file list: ', response);
-
 		yield put(fileListSuccess(response));
 	} catch (error) {
 		if (error.response) {

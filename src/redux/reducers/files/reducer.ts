@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IFileList, IFileStore } from './types';
 
 export const initialState: IFileStore = {
-	fileList: null,
+	fileList: [],
 	isfileListLoader: false,
 };
 
