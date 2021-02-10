@@ -17,6 +17,6 @@ const mapDispatchToProps: IFileListMapDispatchToProps = {
 	fileListRequest,
 };
 
-const Home = connect(mapStateToProps, mapDispatchToProps)(View);
+const FilesList = connect(mapStateToProps, mapDispatchToProps)(View);
 
-export { Home };
+export { FilesList };
