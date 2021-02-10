@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { Layout } from 'antd';
+import LoadingBar from 'react-redux-loading-bar';
 
 import darkVars from 'assets/styles/theme/dark.json';
 import lightVars from 'assets/styles/theme/light.json';
@@ -16,7 +17,12 @@ const View: FC<TEmptyLayoutProps> = (props) => {
 		window.less.modifyVars(vars);
 	}, [darkTheme]);
 
-	return <Layout className={`${classname} empty-layout`}>{children}</Layout>;
+	return (
+		<>
+			<LoadingBar className="loading-bar" />
+			<Layout className={`${classname} empty-layout`}>{children}</Layout>
+		</>
+	);
 };
 
 export { View };

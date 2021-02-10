@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { Card, Layout } from 'antd';
+import LoadingBar from 'react-redux-loading-bar';
 import Header from 'components/header';
 import Footer from 'components/footer';
 
@@ -20,13 +21,16 @@ const View: FC<TBasicLayoutProps> = (props) => {
 	}, [darkTheme]);
 
 	return (
-		<Layout className="base-ant-layout">
-			<Header />
-			<Content className="base-ant-layout-content">
-				<Card className="base-ant-layout-card">{children}</Card>
-			</Content>
-			<Footer />
-		</Layout>
+		<>
+			<LoadingBar className="loading-bar" />
+			<Layout className="base-ant-layout">
+				<Header />
+				<Content className="base-ant-layout-content">
+					<Card className="base-ant-layout-card">{children}</Card>
+				</Content>
+				<Footer />
+			</Layout>
+		</>
 	);
 };
 
