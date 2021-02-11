@@ -7,5 +7,6 @@ export const endpoint = {
 	},
 	files: {
 		FILES: '/files',
+		CREATE_DIR: '/files',
 	},
 };

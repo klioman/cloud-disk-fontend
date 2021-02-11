@@ -5,6 +5,7 @@ export interface IFileListMapStateToProps {
 
 export interface IFileListMapDispatchToProps {
 	fileListRequest: () => void;
+	createDirRequest: (payload: any) => any;
 }
 
 // ==========================================:

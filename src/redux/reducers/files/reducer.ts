@@ -22,9 +22,15 @@ const fileReducer = createSlice({
 			fileListSuccessState.isfileListLoader = false;
 			fileListSuccessState.fileList = payload;
 		},
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		createDirRequest: (state, action: PayloadAction<any>) => {
+			const createDirRequestState = state;
+
+			createDirRequestState.isfileListLoader = true;
+		},
 	},
 });
 
 export default fileReducer.reducer;
 
-export const { fileListRequest, fileListSuccess } = fileReducer.actions;
+export const { fileListRequest, fileListSuccess, createDirRequest } = fileReducer.actions;

@@ -5,7 +5,7 @@ import { IFilesApi } from './types';
 
 // ==========================================:
 export const files: IFilesApi = {
-	filesList: () => {
-		return http.get(endpoint.files.FILES).then((response): IFileList => response.data);
-	},
+	filesList: () => http.get(endpoint.files.FILES).then((response): IFileList => response.data),
+	createFolder: (payload: any) =>
+		http.post(endpoint.files.CREATE_DIR, payload).then((response) => response),
 };
