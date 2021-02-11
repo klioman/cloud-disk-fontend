@@ -13,9 +13,9 @@ type TConnectProps = ILoginIMapStateToProps & ILoginMapDispatchToProps;
 
 // ==========================================:
 interface IOwnProps {
-	position: any;
-	changePosition: any;
-	animationStatus: any;
+	position: boolean;
+	changePosition: (position: boolean) => void;
+	animationStatus: (status: boolean) => void;
 }
 // ==========================================:
 
