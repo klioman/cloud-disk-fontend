@@ -134,6 +134,67 @@ body {
 	right: 0;
 }
 
+.ant-table-thead {
+	.ant-table-cell {
+		font-weight: bold;
+	}
+	tr {
+		.ant-table-cell {
+			&:last-child {
+				text-align: center;
+			}
+		}
+	}
+}
+
+// ================================
+.file-list {
+	&__header {
+		display: grid;
+		grid-template-columns: 1fr 4fr repeat(4, 1fr);
+		align-items: center;
+	}
+
+	&__type {
+		grid-column-start: 1;
+		justify-self: center;
+	}
+	&__name {
+		grid-column-start: 2;
+	}
+	&__date {
+		grid-column-start: 5;
+		justify-self: center;
+	}
+	&__size {
+		grid-column-start: 6;
+		justify-self: center;
+	}
+}
+
+.file {
+	display: grid;
+	grid-template-columns: 1fr 4fr repeat(4, 1fr);
+	align-items: center;
+	padding: 10px 0;
+
+	&__icon {
+		grid-column-start: 1;
+		justify-self: center;
+	}
+	&__name {
+		grid-column-start: 2;
+	}
+	&__date {
+		grid-column-start: 5;
+		justify-self: center;
+	}
+	&__size {
+		grid-column-start: 6;
+		justify-self: center;
+	}
+}
+
 // =====================================================
 .user-profile {
 	display: flex;

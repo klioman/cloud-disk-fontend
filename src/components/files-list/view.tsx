@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
-import { Table } from 'antd';
+import File from 'components/file';
+
 import { TFileListProps } from './types';
 
 // ==========================================:
@@ -10,27 +11,19 @@ const View: FC<TFileListProps> = (props) => {
 		fileListRequest();
 	}, []);
 
-	// =======================================
-	const columns = [
-		{
-			title: 'Название',
-			dataIndex: 'name',
-			key: '_id',
-		},
-		{
-			title: 'Дата',
-			dataIndex: 'date',
-			key: '_id',
-			render: (data: Date) => new Date(data).toLocaleDateString('en-IN'),
-		},
-		{
-			title: 'Размер',
-			dataIndex: 'size',
-			key: '_id',
-		},
-	];
-
-	return <Table columns={columns} rowKey={(fileList) => fileList.name} dataSource={fileList} />;
+	return (
+		<div className="file-list">
+			<div className="file-list__header">
+				<div className="file-list__type">Тип</div>
+				<div className="file-list__name">Название</div>
+				<div className="file-list__date">Дата</div>
+				<div className="file-list__size">Размер</div>
+			</div>
+			{fileList.map((fileItem: any) => (
+				<File key={fileItem.id} dataFile={fileItem} />
+			))}
+		</div>
+	);
 };
 
 export { View };
