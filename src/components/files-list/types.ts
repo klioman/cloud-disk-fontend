@@ -1,8 +1,6 @@
-import { IFileList } from 'redux/reducers/files/types';
-
 // ==========================================:
 export interface IFileListMapStateToProps {
-	fileList: IFileList | never[];
+	fileList: any;
 }
 
 export interface IFileListMapDispatchToProps {
