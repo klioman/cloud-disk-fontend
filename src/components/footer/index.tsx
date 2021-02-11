@@ -7,8 +7,8 @@ const Footer: FC = () => {
 
 	return (
 		<Footer className="app-footer">
-			&copy;
-			{` Все права защищены. 2020 - ${new Date().getFullYear()} `}
+			{`2020 - ${new Date().getFullYear()}. `}
+			&copy; Все права защищены.
 		</Footer>
 	);
 };
