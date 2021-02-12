@@ -33,6 +33,7 @@ const View: FC<TFileListProps> = (props) => {
 			title: 'Дата',
 			dataIndex: 'date',
 			key: 'date',
+			render: (data: string) => new Date(data).toLocaleDateString('de-DE'),
 		},
 		{
 			title: 'Размер',
