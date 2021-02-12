@@ -1,44 +1,65 @@
 import React, { FC, useEffect } from 'react';
-import { Button } from 'antd';
-import File from 'components/file';
-
+import { Table, Button, Tooltip } from 'antd';
+import { DeleteFilled, FileFilled, FolderFilled } from '@ant-design/icons';
 import { TFileListProps } from './types';
 
 // ==========================================:
 const View: FC<TFileListProps> = (props) => {
-	const { fileListRequest, createDirRequest, fileList } = props;
+	const { fileListRequest, fileList } = props;
 
 	useEffect(() => {
 		fileListRequest();
 	}, []);
 
-	const handleCreateDir = () => {
-		const payload: any = {
-			name: 'fidrff11111111st',
-			type: 'dir',
-		};
+	const columns = [
+		{
+			title: 'Тип',
+			dataIndex: 'type',
+			key: 'type',
+			render: (typeElement: string) => {
+				if (typeElement === 'dir') {
+					return <FolderFilled style={{ fontSize: '35px' }} />;
+				}
 
-		createDirRequest(payload);
-	};
+				return <FileFilled />;
+			},
+		},
+		{
+			title: 'Название',
+			dataIndex: 'name',
+			key: 'name',
+		},
+		{
+			title: 'Дата',
+			dataIndex: 'date',
+			key: 'date',
+		},
+		{
+			title: 'Размер',
+			dataIndex: 'size',
+			key: 'size',
+		},
+		{
+			title: 'Действия',
+			dataIndex: 'action',
+			key: 'action',
+			render: () => (
+				<div style={{ textAlign: 'center' }}>
+					<Tooltip title="Удалить">
+						<Button type="primary" danger icon={<DeleteFilled />} />
+					</Tooltip>
+				</div>
+			),
+		},
+	];
 
 	return (
-		<>
-			<div className="file-list">
-				<div className="file-list__header">
-					<div className="file-list__type">Тип</div>
-					<div className="file-list__name">Название</div>
-					<div className="file-list__date">Дата</div>
-					<div className="file-list__size">Размер</div>
-				</div>
-				{fileList.map((fileItem: any) => (
-					<File key={fileItem.id} dataFile={fileItem} />
-				))}
-			</div>
-
-			<Button type="primary" onClick={handleCreateDir}>
-				Создать папку
-			</Button>
-		</>
+		<Table
+			pagination={false}
+			rowKey={(record) => record.name}
+			columns={columns}
+			dataSource={fileList}
+		/>
 	);
 };
 
