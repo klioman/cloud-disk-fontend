@@ -26,7 +26,9 @@ const View: FC<TBasicLayoutProps> = (props) => {
 			<Layout className="base-ant-layout">
 				<Header />
 				<Content className="base-ant-layout-content">
-					<Card className="base-ant-layout-card">{children}</Card>
+					<div className="content-wrapper">
+						<Card className="base-ant-layout-card">{children}</Card>
+					</div>
 				</Content>
 				<Footer />
 			</Layout>
