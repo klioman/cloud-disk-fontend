@@ -56,8 +56,8 @@
 		"stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
 		"commit": "cz",
 		"---------------------------------------;": "-= TEST SECTION =-",
-		"test": "react-app-rewired test",
-		"test:report": "react-app-rewired test --coverage --watchAll",
+		"test": "react-scripts test",
+		"test:report": "react-scripts test --coverage --watchAll",
 		"test:text-summary": "react-app-rewired test --coverage --coverageReporters='text-summary' --watchAll "
 	},
 	"eslintConfig": {
@@ -102,6 +102,15 @@
 		"./**/*.{js,jsx,ts,tsx}": [
 			"eslint --debug src/ --fix",
 			"jest --bail --findRelatedTests"
+		]
+	},
+	"jest": {
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx,ts,tsx}",
+			"!src/**/*.d.ts",
+			"!src/setupTests.ts",
+			"!src/index.tsx",
+			"!src/reportWebVitals.ts"
 		]
 	},
 	"devDependencies": {
