@@ -3,8 +3,8 @@ import { FolderAddOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 
 import BasicLayout from 'layouts/base';
-import SuspenseLoader from 'components/suspense-loader';
-import AppBreadcrumbs from 'components/breadcrumbs';
+import SuspenseLoader from 'components/SuspenseLoader';
+import AppBreadcrumbs from 'components/Breadcrumbs';
 
 const HomeContent = lazy(() => import('contents/home'));
 

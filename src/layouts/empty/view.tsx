@@ -14,7 +14,7 @@ const View: FC<TEmptyLayoutProps> = (props) => {
 	const vars = darkTheme ? darkVars : lightVars;
 
 	useEffect(() => {
-		window.less?.modifyVars(vars);
+		window?.less?.modifyVars(vars);
 	}, [darkTheme]);
 
 	return (

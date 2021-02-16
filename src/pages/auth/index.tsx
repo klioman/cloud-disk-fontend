@@ -1,6 +1,6 @@
 import React, { FC, Suspense, lazy, useState } from 'react';
 import EmptyLayout from 'layouts/empty';
-import SuspenseLoader from 'components/suspense-loader';
+import SuspenseLoader from 'components/SuspenseLoader';
 
 const Login = lazy(() => import('contents/login'));
 const Registration = lazy(() => import('contents/registration'));

@@ -2,8 +2,8 @@ import React, { FC, useEffect } from 'react';
 import Scrollbar from 'react-scrollbars-custom';
 import { Card, Layout } from 'antd';
 import LoadingBar from 'react-redux-loading-bar';
-import Header from 'components/header';
-import Footer from 'components/footer';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 
 import darkVars from 'assets/styles/theme/dark.json';
 import lightVars from 'assets/styles/theme/light.json';
@@ -18,7 +18,7 @@ const View: FC<TBasicLayoutProps> = (props) => {
 	const vars = darkTheme ? darkVars : lightVars;
 
 	useEffect(() => {
-		window.less?.modifyVars(vars);
+		window?.less?.modifyVars(vars);
 	}, [darkTheme]);
 
 	return (
