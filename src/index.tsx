@@ -18,9 +18,7 @@ const render = (Component: ComponentType, root: HTMLElement, done?: () => void) 
 		<ReduxProvider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
 				<ConnectedRouterProvider history={history}>
-					<React.StrictMode>
-						<Component />
-					</React.StrictMode>
+					<Component />
 				</ConnectedRouterProvider>
 			</PersistGate>
 		</ReduxProvider>,

@@ -2,6 +2,7 @@ module.exports = {
 	roots: ['<rootDir>/src'],
 	transform: {
 		'^.+\\.(ts|tsx)$': 'ts-jest',
+		'^.+\\.svg$': 'jest-svg-transformer',
 	},
 	moduleNameMapper: {
 		'\\.(css|scss|less)$': 'identity-obj-proxy',
