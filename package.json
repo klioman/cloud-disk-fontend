@@ -101,7 +101,7 @@
 		],
 		"./**/*.{js,jsx,ts,tsx}": [
 			"eslint --debug src/ --fix",
-			"set CI=true&&yarn test"
+			"jest --bail --findRelatedTests"
 		]
 	},
 	"devDependencies": {
