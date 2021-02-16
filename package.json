@@ -93,14 +93,8 @@
 		}
 	},
 	"lint-staged": {
-		"./**/*.{css,scss}": [
-			"stylelint --fix"
-		],
-		"./**/*.{json,md}": [
-			"prettier --write"
-		],
-		"./**/*.{js,jsx,ts,tsx}": [
-			"eslint --debug src/ --fix",
+		"*.{js,jsx,ts,tsx,md,html,css}": [
+			"prettier --write",
 			"jest --bail --findRelatedTests"
 		]
 	},
