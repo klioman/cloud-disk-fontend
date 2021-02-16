@@ -15,11 +15,10 @@ const View: FC<TBasicLayoutProps> = (props) => {
 	const { darkTheme, children } = props;
 	const { Content } = Layout;
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const vars = darkTheme ? darkVars : lightVars;
 
 	useEffect(() => {
-		// window.less.modifyVars(vars);
+		window.less?.modifyVars(vars);
 	}, [darkTheme]);
 
 	return (
