@@ -8,6 +8,8 @@ import { persistor, store } from 'redux/store';
 
 import Login from 'contents/Login';
 
+const mockFunction = jest.fn();
+
 Object.defineProperty(window, 'matchMedia', {
 	value: () => {
 		return {
@@ -17,8 +19,6 @@ Object.defineProperty(window, 'matchMedia', {
 		};
 	},
 });
-
-const mockFunction = jest.fn();
 
 // ================================================:
 describe('Login content component:', () => {

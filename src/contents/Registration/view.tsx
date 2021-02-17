@@ -125,10 +125,17 @@ const View: FC<TRegistrationComponentProps> = (props) => {
 							className="auth-btn-type-2"
 							type="primary"
 							htmlType="button"
+							data-testid="login-form"
 						>
 							Войти
 						</Button>
-						<Button size="large" className="auth-btn-type-1" type="primary" htmlType="submit">
+						<Button
+							data-testid="send-registration"
+							size="large"
+							className="auth-btn-type-1"
+							type="primary"
+							htmlType="submit"
+						>
 							Отправить
 						</Button>
 					</Form.Item>
