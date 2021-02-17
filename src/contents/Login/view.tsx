@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Form, Input, Spin, Button, Checkbox, Card } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
-import { Store } from 'antd/lib/form/interface';
 import { ILoginRequestPayload } from 'redux/reducers/auth/types';
 import { TLoginComponentProps } from './types';
 
@@ -13,10 +12,8 @@ const View: FC<TLoginComponentProps> = (props) => {
 		loginRequest(values);
 	};
 
-	const onFinishFailed = (errorInfo: Store) => {
-		// eslint-disable-next-line no-console
-		console.error('Failed:', errorInfo);
-	};
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	const onFinishFailed = () => {};
 
 	const handleChangeForm = () => {
 		animationStatus(true);
@@ -37,6 +34,7 @@ const View: FC<TLoginComponentProps> = (props) => {
 					name="user-login"
 					onFinish={onFinish}
 					onFinishFailed={onFinishFailed}
+					data-testid="user-login"
 				>
 					<div className="auth-form-wrapper__content">
 						<Form.Item
@@ -94,10 +92,17 @@ const View: FC<TLoginComponentProps> = (props) => {
 							className="auth-btn-type-2"
 							type="primary"
 							htmlType="button"
+							data-testid="registration-form"
 						>
 							Регистрация
 						</Button>
-						<Button size="large" className="auth-btn-type-1" type="primary" htmlType="submit">
+						<Button
+							data-testid="send-login"
+							size="large"
+							className="auth-btn-type-1"
+							type="primary"
+							htmlType="submit"
+						>
 							Отправить
 						</Button>
 					</Form.Item>
