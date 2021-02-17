@@ -6,20 +6,20 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import EmptyLayout from 'layouts/empty';
+import Home from 'pages/PHome';
 
-describe('Empty layout component', () => {
-	it('Empty layout component must be render', () => {
+describe('Home page component:', () => {
+	it('Home page component must be render', () => {
 		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
-						<EmptyLayout>Test</EmptyLayout>
+						<Home />
 					</ConnectedRouterProvider>
 				</PersistGate>
 			</ReduxProvider>,
 		);
 
-		expect(<EmptyLayout>Test</EmptyLayout>).toBeTruthy();
+		expect(<Home />).toBeTruthy();
 	});
 });

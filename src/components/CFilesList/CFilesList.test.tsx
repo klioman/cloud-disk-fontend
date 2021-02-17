@@ -6,20 +6,19 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import Home from 'pages/Home';
+import FilesList from 'components/CFilesList';
 
-describe('Home page component:', () => {
-	it('Home page component must be render', () => {
+describe('Files list component:', () => {
+	it('Files list component must be render', () => {
 		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
-						<Home />
+						<FilesList />
 					</ConnectedRouterProvider>
 				</PersistGate>
 			</ReduxProvider>,
 		);
-
-		expect(<Home />).toBeTruthy();
+		expect(<FilesList />).toBeTruthy();
 	});
 });

@@ -6,7 +6,7 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import BasicLayout from 'layouts/base';
+import BasicLayout from 'layouts/LBase';
 
 describe('Empty layout component', () => {
 	it('Empty layout component must be render', () => {

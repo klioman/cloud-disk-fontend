@@ -2,8 +2,8 @@ import React, { FC, useEffect } from 'react';
 import Scrollbar from 'react-scrollbars-custom';
 import { Card, Layout } from 'antd';
 import LoadingBar from 'react-redux-loading-bar';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Header from 'components/CHeader';
+import Footer from 'components/CFooter';
 
 import darkVars from 'assets/styles/theme/dark.json';
 import lightVars from 'assets/styles/theme/light.json';
