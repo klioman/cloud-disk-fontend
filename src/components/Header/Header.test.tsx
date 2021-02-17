@@ -6,20 +6,20 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import Home from 'contents/CHome';
+import Header from 'components/Header';
 
-describe('Home content component:', () => {
-	it('Home content component must be render', () => {
+describe('Header component:', () => {
+	it('Header component must be render', () => {
 		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
-						<Home />
+						<Header />
 					</ConnectedRouterProvider>
 				</PersistGate>
 			</ReduxProvider>,
 		);
 
-		expect(<Home />).toBeTruthy();
+		expect(<Header />).toBeTruthy();
 	});
 });

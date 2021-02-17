@@ -6,7 +6,7 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import Login from 'contents/CLogin';
+import Login from 'contents/Login';
 
 const mockFunction = jest.fn();
 

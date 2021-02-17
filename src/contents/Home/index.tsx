@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import FilesList from 'components/CFilesList';
+import FilesList from 'components/FilesList';
 
 // ==========================================:
 const HomeContent: FC = () => {

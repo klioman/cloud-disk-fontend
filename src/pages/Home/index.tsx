@@ -2,11 +2,11 @@ import React, { FC, Suspense, lazy } from 'react';
 import { FolderAddOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 
-import BasicLayout from 'layouts/LBase';
-import SuspenseLoader from 'components/CSuspenseLoader';
-import AppBreadcrumbs from 'components/CBreadcrumbs';
+import BasicLayout from 'layouts/Base';
+import SuspenseLoader from 'components/SuspenseLoader';
+import AppBreadcrumbs from 'components/Breadcrumbs';
 
-const HomeContent = lazy(() => import('contents/CHome'));
+const HomeContent = lazy(() => import('contents/Home'));
 
 // ==========================================:
 const Home: FC = () => {

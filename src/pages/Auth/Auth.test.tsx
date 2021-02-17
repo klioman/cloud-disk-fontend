@@ -6,20 +6,20 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import EmptyLayout from 'layouts/LEmpty';
+import Auth from 'pages/Auth';
 
-describe('Empty layout component', () => {
-	it('Empty layout component must be render', () => {
+describe('Auth page component:', () => {
+	it('Auth page component must be render', () => {
 		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
-						<EmptyLayout>Test</EmptyLayout>
+						<Auth />
 					</ConnectedRouterProvider>
 				</PersistGate>
 			</ReduxProvider>,
 		);
 
-		expect(<EmptyLayout>Test</EmptyLayout>).toBeTruthy();
+		expect(<Auth />).toBeTruthy();
 	});
 });

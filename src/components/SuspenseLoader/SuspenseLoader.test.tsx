@@ -6,7 +6,7 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import SuspenseLoader from 'components/CSuspenseLoader';
+import SuspenseLoader from 'components/SuspenseLoader';
 
 describe('Suspense loader component:', () => {
 	it('Suspense loader component must be render', () => {

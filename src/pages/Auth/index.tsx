@@ -1,9 +1,9 @@
 import React, { FC, Suspense, lazy, useState } from 'react';
-import EmptyLayout from 'layouts/LEmpty';
-import SuspenseLoader from 'components/CSuspenseLoader';
+import EmptyLayout from 'layouts/Empty';
+import SuspenseLoader from 'components/SuspenseLoader';
 
-const Login = lazy(() => import('contents/CLogin'));
-const Registration = lazy(() => import('contents/CRegistration'));
+const Login = lazy(() => import('contents/Login'));
+const Registration = lazy(() => import('contents/Registration'));
 
 // ==========================================:
 const Auth: FC = () => {
