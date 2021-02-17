@@ -6,7 +6,7 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import Header from './index';
+import Header from 'components/Header';
 
 describe('Header component', () => {
 	it('Header component must be render', () => {

@@ -6,7 +6,7 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import Footer from './index';
+import Footer from 'components/Footer';
 
 describe('Footer component', () => {
 	it('Footer component must be render', () => {

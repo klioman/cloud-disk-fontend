@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import AppBreadcrumbs from './index';
+
+import AppBreadcrumbs from 'components/Breadcrumbs';
 
 describe('Breadcrumbs component', () => {
 	it('Breadcrumbs component must be render', () => {
