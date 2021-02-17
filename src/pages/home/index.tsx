@@ -6,7 +6,7 @@ import BasicLayout from 'layouts/base';
 import SuspenseLoader from 'components/SuspenseLoader';
 import AppBreadcrumbs from 'components/Breadcrumbs';
 
-const HomeContent = lazy(() => import('contents/home'));
+const HomeContent = lazy(() => import('contents/Home'));
 
 // ==========================================:
 const Home: FC = () => {

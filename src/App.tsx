@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
 import { isAuth, isGuest } from 'routes/authMiddlewares';
 
-import Home from 'pages/home';
-import Auth from 'pages/auth';
+import Home from 'pages/Home';
+import Auth from 'pages/Auth';
 
 // ==========================================:
 const App: FC = () => {
