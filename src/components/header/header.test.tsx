@@ -8,7 +8,7 @@ import { persistor, store } from 'redux/store';
 
 import Header from 'components/Header';
 
-describe('Header component', () => {
+describe('Header component:', () => {
 	it('Header component must be render', () => {
 		render(
 			<ReduxProvider store={store}>

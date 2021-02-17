@@ -6,19 +6,20 @@ import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-rout
 import { history } from 'routes/history';
 import { persistor, store } from 'redux/store';
 
-import FilesList from 'components/FilesList';
+import SuspenseLoader from 'components/SuspenseLoader';
 
-describe('Files list component:', () => {
-	it('Files list component must be render', () => {
+describe('Suspense loader component:', () => {
+	it('Suspense loader component must be render', () => {
 		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
-						<FilesList />
+						<SuspenseLoader />
 					</ConnectedRouterProvider>
 				</PersistGate>
 			</ReduxProvider>,
 		);
-		expect(<FilesList />).toBeTruthy();
+
+		expect(<SuspenseLoader />).toBeTruthy();
 	});
 });

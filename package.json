@@ -111,7 +111,9 @@
 			"!src/setupTests.ts",
 			"!src/constants/**",
 			"!src/definitions/**",
+			"!src/utils/dev-console.ts",
 			"!src/index.tsx",
+			"!src/redux/persistConfig.ts",
 			"!src/reportWebVitals.ts"
 		]
 	},

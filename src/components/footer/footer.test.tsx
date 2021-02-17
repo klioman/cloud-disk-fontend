@@ -8,7 +8,7 @@ import { persistor, store } from 'redux/store';
 
 import Footer from 'components/Footer';
 
-describe('Footer component', () => {
+describe('Footer component:', () => {
 	it('Footer component must be render', () => {
 		render(
 			<ReduxProvider store={store}>
