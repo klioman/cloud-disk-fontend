@@ -8,9 +8,10 @@ import { persistor, store } from 'redux/store';
 
 import Home from 'contents/Home';
 
+// ================================================:
 describe('Home content component:', () => {
 	it('Home content component must be render', () => {
-		render(
+		const { container } = render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
@@ -20,6 +21,6 @@ describe('Home content component:', () => {
 			</ReduxProvider>,
 		);
 
-		expect(<Home />).toBeTruthy();
+		expect(container).toBeInTheDocument();
 	});
 });

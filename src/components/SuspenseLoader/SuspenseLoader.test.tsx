@@ -8,9 +8,10 @@ import { persistor, store } from 'redux/store';
 
 import SuspenseLoader from 'components/SuspenseLoader';
 
+// ================================================:
 describe('Suspense loader component:', () => {
 	it('Suspense loader component must be render', () => {
-		render(
+		const { container } = render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
@@ -20,6 +21,6 @@ describe('Suspense loader component:', () => {
 			</ReduxProvider>,
 		);
 
-		expect(<SuspenseLoader />).toBeTruthy();
+		expect(container).toBeInTheDocument();
 	});
 });

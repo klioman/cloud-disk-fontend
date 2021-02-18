@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ConnectedRouter as ConnectedRouterProvider } from 'connected-react-router';
@@ -11,6 +11,23 @@ import Header from 'components/Header';
 // ================================================:
 describe('Header component:', () => {
 	it('Header component must be render', () => {
+		const { container } = render(
+			<ReduxProvider store={store}>
+				<PersistGate loading={null} persistor={persistor}>
+					<ConnectedRouterProvider history={history}>
+						<Header />
+					</ConnectedRouterProvider>
+				</PersistGate>
+			</ReduxProvider>,
+		);
+
+		expect(container).toBeInTheDocument();
+	});
+
+	// -----------------------------------------------
+	it('User logout from admin panel', () => {
+		const mockFn = jest.fn(() => true);
+
 		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
@@ -21,24 +38,7 @@ describe('Header component:', () => {
 			</ReduxProvider>,
 		);
 
-		expect(<Header />).toBeTruthy();
-	});
-	// -----------------------------------------------
-	it('User logout from admin panel', () => {
-		const mockFn = jest.fn(() => true);
-
-		const { getByRole } = render(
-			<ReduxProvider store={store}>
-				<PersistGate loading={null} persistor={persistor}>
-					<ConnectedRouterProvider history={history}>
-						<Header />
-					</ConnectedRouterProvider>
-				</PersistGate>
-			</ReduxProvider>,
-		);
-
-		const button = getByRole('button');
-		fireEvent.click(button);
+		fireEvent.click(screen.getByRole('button'));
 
 		expect(mockFn()).toBe(true);
 	});
@@ -46,7 +46,7 @@ describe('Header component:', () => {
 	it('The color theme should change', () => {
 		const mockFn = jest.fn(() => true);
 
-		const { getByRole } = render(
+		render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
@@ -56,8 +56,7 @@ describe('Header component:', () => {
 			</ReduxProvider>,
 		);
 
-		const button = getByRole('switch');
-		fireEvent.click(button);
+		fireEvent.click(screen.getByRole('switch'));
 
 		expect(mockFn()).toBe(true);
 	});

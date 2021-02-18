@@ -8,9 +8,10 @@ import { persistor, store } from 'redux/store';
 
 import Auth from 'pages/Auth';
 
+// ================================================:
 describe('Auth page component:', () => {
 	it('Auth page component must be render', () => {
-		render(
+		const { container } = render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
@@ -20,6 +21,6 @@ describe('Auth page component:', () => {
 			</ReduxProvider>,
 		);
 
-		expect(<Auth />).toBeTruthy();
+		expect(container).toBeInTheDocument();
 	});
 });

@@ -10,7 +10,7 @@ import App from 'App';
 
 describe('App component', () => {
 	it('App component must be render', () => {
-		render(
+		const { container } = render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
@@ -20,6 +20,6 @@ describe('App component', () => {
 			</ReduxProvider>,
 		);
 
-		expect(<App />).toBeTruthy();
+		expect(container).toBeInTheDocument();
 	});
 });

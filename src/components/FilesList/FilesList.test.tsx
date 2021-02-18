@@ -8,9 +8,10 @@ import { persistor, store } from 'redux/store';
 
 import FilesList from 'components/FilesList';
 
+// ================================================:
 describe('Files list component:', () => {
 	it('Files list component must be render', () => {
-		render(
+		const { container } = render(
 			<ReduxProvider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<ConnectedRouterProvider history={history}>
@@ -19,6 +20,7 @@ describe('Files list component:', () => {
 				</PersistGate>
 			</ReduxProvider>,
 		);
-		expect(<FilesList />).toBeTruthy();
+
+		expect(container).toBeInTheDocument();
 	});
 });
